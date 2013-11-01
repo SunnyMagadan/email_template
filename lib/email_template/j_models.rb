@@ -8,7 +8,6 @@ module EmailTemplate
 
       attr_accessor :prepared
 
-      attr_accessible :name, :body, :subject, :classes
       serialize :classes, Array
 
       validates :name, :uniqueness => true
