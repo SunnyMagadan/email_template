@@ -26,9 +26,15 @@ module EmailTemplate
               "#{link_head(record)}/unlock?unlock_token => #{@resource.unlock_token}")
           ) if @resource.respond_to? :unlock_token
 
+          begin
+            headers = headers_for(action, mail_params).except(:subject, :template_path, :template_name)
+          rescue ArgumentError
+            headers = headers_for(action).except(:subject, :template_path, :template_name)
+          end
+
           mailing(
               check_template(template_name),
-              headers_for(action, mail_params).except(:subject, :template_path, :template_name),
+              headers,
               template_params.except(:*)
           )
         end
