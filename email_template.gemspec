@@ -17,6 +17,6 @@ Gem::Specification.new do |gem|
   gem.rubygems_version = %q{1.8.6}
   gem.license = 'MIT'
 
-  gem.add_dependency("rails", ">= 3.0.0")
+  #gem.add_dependency("rails", ">= 3.5.0")
 end
 
